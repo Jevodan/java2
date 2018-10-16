@@ -13,7 +13,6 @@ public class App {
     public static final int SIZE_ARRAY = 50;
 
     public static void main(String[] args) {
-
         App.partFirstSecond();
         App.partThird();
     }
@@ -22,7 +21,6 @@ public class App {
      * Первый и второй пункт ДЗ( Обобщения) - Преобразуем массив в список, затем меняем в нем произвольные элементы
      */
     public static void partFirstSecond() {
-
         final Random rand = new Random();
         final ArrayServiceImpl impl = new ArrayServiceImpl(new String[SIZE_ARRAY]);
 
@@ -43,7 +41,6 @@ public class App {
      * Не забываем про метод добавления фрукта в коробку.
      */
     public static void partThird() {
-
         final Box appleFirstBox = new Box(new Apple(), 50);
         final Box garnetFirstBox = new Box(new Garnet(), 60);
         final Box appleSecondBox = new Box(new Apple(), 90);
