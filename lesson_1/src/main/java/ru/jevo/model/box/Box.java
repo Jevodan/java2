@@ -29,7 +29,6 @@ public class Box<T extends Fruit> implements BoxService<T> {
 
     @Override
     public void charge(Box box) {
-
         if (this.getFruitType().getName().equals(box.getFruitType().getName())) {
             for (int i = 0; i < this.getBox().size(); i++)
                 box.getBox().add(box.getBox().size(), this.getBox().get(i));
