@@ -3,6 +3,7 @@ package ru.jevo;
 import ru.jevo.model.box.Box;
 import ru.jevo.model.constants.Constant;
 import ru.jevo.model.fruits.Apple;
+import ru.jevo.model.fruits.Fruit;
 import ru.jevo.model.fruits.Garnet;
 import ru.jevo.service.ArrayServiceImpl;
 import java.util.List;
@@ -41,11 +42,17 @@ public class App {
      * Не забываем про метод добавления фрукта в коробку.
      */
     public static void partThird() {
-        final Box appleFirstBox = new Box(new Apple(), 50);
-        final Box garnetFirstBox = new Box(new Garnet(), 60);
-        final Box appleSecondBox = new Box(new Apple(), 90);
-        final Box garnetSecondBox = new Box(new Garnet(), 80);
-        final Box appleThirdBox = new Box(new Apple(), 50);
+        final Box appleFirstBox = new Box(50);
+        appleFirstBox.add(new Apple());
+      // appleFirstBox.
+        final Box<Fruit> garnetFirstBox = new Box(60);
+        garnetFirstBox.add(new Garnet());
+        final Box<Fruit> appleSecondBox = new Box(90);
+        appleSecondBox.add(new Apple());
+        final Box<Fruit> garnetSecondBox = new Box(80);
+        garnetSecondBox.add(new Garnet());
+        final Box<Fruit> appleThirdBox = new Box(50);
+        appleThirdBox.add(new Apple());
 
         printCompare(appleSecondBox, garnetFirstBox);
         printCompare(appleSecondBox, appleFirstBox);

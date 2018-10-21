@@ -6,15 +6,16 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import ru.jevo.model.box.Box;
 import ru.jevo.model.fruits.Apple;
+import ru.jevo.model.fruits.Fruit;
 import ru.jevo.model.fruits.Garnet;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
-    final Box appleFirstBox = new Box(new Apple(), 50);
-    final Box garnetFirstBox = new Box(new Garnet(), 60);
-    final Box appleSecondBox = new Box(new Apple(), 90);
+    final Box<Apple> appleFirstBox = new Box(50);
+    final Box<Garnet> garnetFirstBox = new Box(60);
+    final Box<Apple> appleSecondBox = new Box(90);
 
     @Test
     public void testCompare() {

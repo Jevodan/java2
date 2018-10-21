@@ -14,12 +14,18 @@ public class Box<T extends Fruit> implements BoxService<T> {
 
     private T fruitType;
     private float weight = 0f;
-    private List box = new ArrayList<>();
+    private List<T> box = new ArrayList<>();
+    private int capacity;
 
-    public Box(T fruitType, int capacity) {
-        this.fruitType = fruitType;
+    public Box(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void add(T fruit) {
+        this.fruitType = fruit;
+        System.out.println(fruit.getClass().getSimpleName());
         for (int i = 0; i < capacity; i++)
-            this.box.add(fruitType);
+            this.box.add(fruit);
     }
 
     private void clear() {
