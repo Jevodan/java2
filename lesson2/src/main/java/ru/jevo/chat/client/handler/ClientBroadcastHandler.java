@@ -5,6 +5,8 @@ import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import ru.jevo.chat.client.api.Client;
 import ru.jevo.chat.client.event.ClientBroadcastEvent;
+import ru.jevo.chat.client.event.ClientHistoryEvent;
+import ru.jevo.chat.client.event.ClientWriteMessageEvent;
 import ru.jevo.chat.client.user.UserClient;
 import ru.jevo.chat.model.PacketBroadcast;
 
@@ -16,6 +18,9 @@ public class ClientBroadcastHandler {
 
     @Inject
     Client client;
+
+    @Inject
+    private Event<ClientWriteMessageEvent> clientWriteMessageEvent;
 
     @SneakyThrows
     public void handler(@ObservesAsync final ClientBroadcastEvent event) {
@@ -32,6 +37,7 @@ public class ClientBroadcastHandler {
         packetBroadcast.setLogin(UserClient.login);
 
         client.send(objectMapper.writeValueAsString(packetBroadcast));
+        clientWriteMessageEvent.fireAsync(new ClientWriteMessageEvent(UserClient.login + " : " + event.getMessage()));
 
     }
 

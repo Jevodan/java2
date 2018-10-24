@@ -72,12 +72,12 @@ public class ChatDraw implements ChatSide {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
-        labelMain = new JTextArea(22, 31);
+        labelMain = new JTextArea(22, 30);
         labelMain.setEditable(false);
         messagePossible(false);
 
         scrollPane = new JScrollPane(labelMain);
-        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         conf.elementConfig(labelMain, 650, 70000);

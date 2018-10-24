@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import ru.jevo.chat.client.api.Client;
 import ru.jevo.chat.client.chatdraw.ChatDraw;
+import ru.jevo.chat.client.event.ClientHistoryEvent;
 import ru.jevo.chat.client.event.ClientMessageReadEvent;
 import ru.jevo.chat.config.ChatConfig;
 
@@ -25,6 +26,9 @@ public class ClientService implements Client {
 
     @Inject
     private Event<ClientMessageReadEvent> clientMessageReadEvent;
+
+    @Inject
+    private Event<ClientHistoryEvent> clientHistoryEvent;
 
     @Inject
     private ChatConfig config;
@@ -58,6 +62,7 @@ public class ClientService implements Client {
         out = new DataOutputStream(socket.getOutputStream());
         draw.run();
         clientMessageReadEvent.fireAsync(new ClientMessageReadEvent());
+        clientHistoryEvent.fireAsync(new ClientHistoryEvent());
     }
 
     @Override
