@@ -55,6 +55,7 @@ public class ClientService implements Client {
     @Override
     @SneakyThrows
     public void run() {
+
         final String host = config.getHost();
         final Integer port = config.getPort();
         socket = new Socket(host, port);
@@ -63,6 +64,7 @@ public class ClientService implements Client {
         draw.run();
         clientMessageReadEvent.fireAsync(new ClientMessageReadEvent());
         clientHistoryEvent.fireAsync(new ClientHistoryEvent());
+
     }
 
     @Override

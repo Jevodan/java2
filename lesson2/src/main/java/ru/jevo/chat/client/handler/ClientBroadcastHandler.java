@@ -24,11 +24,7 @@ public class ClientBroadcastHandler {
 
     @SneakyThrows
     public void handler(@ObservesAsync final ClientBroadcastEvent event) {
-        /*
-        @NotNull final Scanner in = new Scanner(System.in);
-        System.out.println("Введите сообщение");
-        @NotNull final String message = in.nextLine();
-        */
+
         System.out.println("БРОАДКАСТ");
 
         @NotNull final ObjectMapper objectMapper = new ObjectMapper();

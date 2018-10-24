@@ -46,6 +46,7 @@ public class InOutTest {
     @Test
     @SneakyThrows
     public void outText() {
+
         final InputStream inputStream = ClassLoader.getSystemResourceAsStream("history.properties");
         final Properties properties = new Properties();
         properties.load(inputStream);

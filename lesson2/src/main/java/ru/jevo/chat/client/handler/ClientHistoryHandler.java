@@ -28,6 +28,7 @@ public class ClientHistoryHandler {
     public void handler(@ObservesAsync ClientHistoryEvent event) {
 
         if (new File(prop.getPath() + prop.getName()).isFile()) {
+
             FileInputStream fstream = new FileInputStream(prop.getPath() + prop.getName());
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String strLine;
